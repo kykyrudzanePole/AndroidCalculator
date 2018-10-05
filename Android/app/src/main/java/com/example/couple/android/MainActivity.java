@@ -1,11 +1,15 @@
 package com.example.couple.android;
 
 import android.annotation.SuppressLint;
+import android.os.PatternMatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -194,10 +198,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     editText.setText(editText.getText().delete(editText.getText().length() - 1, editText.getText().length()));
-                }catch (IndexOutOfBoundsException e){
-
-                }
+                }catch (IndexOutOfBoundsException e){ }
+            }
+        });
+        buttonFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parceEditText(String.valueOf(editText.getText()));
             }
         });
     }
+
+    public void parceEditText(String editText){
+        Log.d("1", editText);
+
+        Pattern pattern = Pattern.compile();
+    }
 }
+

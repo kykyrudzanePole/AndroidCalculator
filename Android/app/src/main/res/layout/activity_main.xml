@@ -23,7 +23,6 @@
             tools:ignore="RtlCompat"
             android:inputType="text"
             android:cursorVisible="false"
-            android:editable="false"
             android:textCursorDrawable="@color/black"/>
 
     </LinearLayout>
