@@ -10,19 +10,142 @@
         android:id="@+id/textLayout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="200px">
+        android:layout_height="400px"
+        android:background="@color/grey">
 
     </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        android:layout_below="@+id/textLayout">
+        android:layout_below="@+id/textLayout"
+        android:background="@color/black">
 
-        <TableRow>
+        <TableRow
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1">
 
-        
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_weight="1"/>
+
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_weight="1"/>
+
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_weight="1"/>
+
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_weight="1"/>
+
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_weight="1"/>
+
+       </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
         </TableRow>
 
