@@ -17,12 +17,14 @@
             android:background="@color/grey"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Give my some formula :"
-            android:textSize="25sp"
-            android:gravity="bottom"
+            android:textSize="50sp"
+            android:gravity="center"
             android:textAlignment="textEnd"
             tools:ignore="RtlCompat"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:cursorVisible="false"
+            android:editable="false"
+            android:textCursorDrawable="@color/black"/>
 
     </LinearLayout>
 
