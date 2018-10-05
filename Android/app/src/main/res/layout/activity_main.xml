@@ -22,34 +22,44 @@
         android:background="@color/black">
 
         <TableRow
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_weight="1">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
            <Button
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+               android:text="1"
+               android:textSize="25dp"/>
 
            <Button
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+               android:text="2"
+               android:textSize="25dp"/>
 
            <Button
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+               android:text="3"
+               android:textSize="25dp"/>
 
            <Button
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+               android:text="del"
+               android:textSize="20dp"/>
 
            <Button
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+               android:text="safe"
+               android:textSize="20dp"/>
 
        </TableRow>
 
@@ -61,27 +71,37 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="4"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="5"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="6"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="+"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="-"
+                android:textSize="25dp"/>
 
         </TableRow>
 
@@ -93,27 +113,37 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="7"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="8"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="9"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="*"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="/"
+                android:textSize="25dp"/>
 
         </TableRow>
 
@@ -125,27 +155,37 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="("
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="0"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text=")"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="^"
+                android:textSize="25dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="√"
+                android:textSize="25dp"/>
 
         </TableRow>
 
