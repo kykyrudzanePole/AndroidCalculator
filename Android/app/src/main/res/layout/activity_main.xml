@@ -23,6 +23,7 @@
             tools:ignore="RtlCompat"
             android:inputType="text"
             android:cursorVisible="false"
+            android:enabled="false"
             android:textCursorDrawable="@color/black"/>
 
     </LinearLayout>
@@ -212,11 +213,11 @@
                 android:textSize="25sp"/>
 
             <Button
-                android:id="@+id/buttonRoot"
+                android:id="@+id/buttonPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="√"
+                android:text="."
                 android:textSize="25sp"/>
 
         </TableRow>

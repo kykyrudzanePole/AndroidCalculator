@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonFind;
     Button buttonRightBracket;
     Button buttonLeftBracket;
-    Button buttonRoot;
+    Button buttonPoint;
 
     EditText editText;
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         buttonFind = (Button) findViewById(R.id.buttonFind);
         buttonRightBracket = (Button) findViewById(R.id.buttonRightBracket);
         buttonLeftBracket = (Button) findViewById(R.id.buttonLeftBracket);
-        buttonRoot = (Button) findViewById(R.id.buttonRoot);
+        buttonPoint = (Button) findViewById(R.id.buttonPoint);
 
         button0.setOnClickListener(new View.OnClickListener() {
 
@@ -151,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonRoot.setOnClickListener(new View.OnClickListener() {
+        buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editText.setText(editText.getText() + "√");
+                editText.setText(editText.getText() + ".");
             }
         });
 
@@ -182,14 +183,14 @@ public class MainActivity extends AppCompatActivity {
         buttonRightBracket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editText.setText(editText.getText() + "(");
+                editText.setText(editText.getText() + ")");
             }
         });
 
         buttonLeftBracket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editText.setText(editText.getText() + "/");
+                editText.setText(editText.getText() + "(");
             }
         });
 
@@ -212,7 +213,32 @@ public class MainActivity extends AppCompatActivity {
     public void parceEditText(String editText){
         Log.d("1", editText);
 
-        Pattern pattern = Pattern.compile();
+        Pattern pattern = Pattern.compile("(.+)");
+        Matcher matcher = pattern.matcher(editText);
+
+        while(matcher.find()){
+            brackets(matcher.group());
+        }
+    }
+
+    public double add(double x, double y){
+        return x + y;
+    }
+
+    public double minus(double x, double y){
+        return x - y;
+    }
+
+    public double multiply(double x, double y){
+        return x * y;
+    }
+
+    public double division(double x, double y){
+        return x / y;
+    }
+
+    public static void brackets(String betweenBrackets){
+        Log.d("2", betweenBrackets);
     }
 }
 
