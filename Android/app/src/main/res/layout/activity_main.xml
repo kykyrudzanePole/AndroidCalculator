@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="50sp"
+            android:textColor="@color/black"
             android:gravity="center"
             android:textAlignment="textEnd"
             tools:ignore="RtlCompat"

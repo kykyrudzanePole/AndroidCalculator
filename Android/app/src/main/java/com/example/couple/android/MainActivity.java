@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "0");
+                sizeText(editText);
             }
         });
 
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "1");
+                sizeText(editText);
             }
         });
 
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "2");
+                sizeText(editText);
             }
         });
 
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "3");
+                sizeText(editText);
             }
         });
 
@@ -100,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "4");
+                sizeText(editText);
             }
         });
 
@@ -107,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "5");
+                sizeText(editText);
             }
         });
 
@@ -114,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "6");
+                sizeText(editText);
             }
         });
 
@@ -121,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "7");
+                sizeText(editText);
             }
         });
 
@@ -128,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "8");
+                sizeText(editText);
             }
         });
 
@@ -135,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "9");
+                sizeText(editText);
             }
         });
 
@@ -142,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "+");
+                sizeText(editText);
             }
         });
 
@@ -149,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "-");
+                sizeText(editText);
             }
         });
 
@@ -156,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + ".");
+                sizeText(editText);
             }
         });
 
@@ -163,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "^");
+                sizeText(editText);
             }
         });
 
@@ -170,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "*");
+                sizeText(editText);
             }
         });
 
@@ -177,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "/");
+                sizeText(editText);
             }
         });
 
@@ -184,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + ")");
+                sizeText(editText);
             }
         });
 
@@ -191,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "(");
+                sizeText(editText);
             }
         });
 
@@ -205,40 +224,160 @@ public class MainActivity extends AppCompatActivity {
         buttonFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parceEditText(String.valueOf(editText.getText()));
+                String findFormula = parceEditText(String.valueOf(editText.getText()));
+
+                if(findFormula.substring(findFormula.length() - 2).equals(".0")){
+                    Log.d("1", findFormula);
+                    findFormula = findFormula.substring(0, findFormula.length() - 2);
+                }
+                editText.setText(findFormula);
             }
         });
     }
 
-    public void parceEditText(String editText){
-        Log.d("1", editText);
+    private static void sizeText(EditText editText){
 
-        Pattern pattern = Pattern.compile("(.+)");
-        Matcher matcher = pattern.matcher(editText);
-
-        while(matcher.find()){
-            brackets(matcher.group());
+        if(editText.getText().length() >= 12) {
+            editText.setTextSize(30);
+        }else{
+            editText.setTextSize(50);
         }
     }
 
-    public double add(double x, double y){
+    private static double add(double x, double y){
         return x + y;
     }
 
-    public double minus(double x, double y){
+    private static double minus(double x, double y){
         return x - y;
     }
 
-    public double multiply(double x, double y){
+    private static double multiply(double x, double y){
         return x * y;
     }
 
-    public double division(double x, double y){
+    private static double division(double x, double y){
         return x / y;
     }
 
-    public static void brackets(String betweenBrackets){
-        Log.d("2", betweenBrackets);
+    private static double degree(double x, double y){
+        return Math.pow(x, y);
+    }
+
+    public String parceEditText(String editText){
+
+        StringBuffer formula = new StringBuffer("(" + editText + ")");
+
+        System.out.println(String.valueOf(formula));
+        Boolean check = true;
+        while(check) {
+
+            Pattern pattern = Pattern.compile("\\([^()]+\\)");
+            Matcher matcher = pattern.matcher(formula);
+
+            if (matcher.find()) {
+                String brackets = matcher.group();
+
+                brackets = recurseDegree(brackets);
+
+                brackets = recurseFirst(brackets);
+
+                brackets = recurseSecond(brackets);
+
+                formula.replace(matcher.start(), matcher.end(), brackets.substring(1, brackets.length() - 1));
+
+            }else{
+                check = false;
+            }
+        }
+
+        return String.valueOf(formula);
+    }
+
+    private static String recurseDegree(String brackets){
+        Pattern patternDegree = Pattern.compile("((\\d+\\.\\d+)|(\\d+))\\^((\\d+\\.\\d+)|(\\d+))");
+        Matcher matcherDegree = patternDegree.matcher(brackets);
+
+        while(matcherDegree.find()){
+            String[] degreeArray = matcherDegree.group().split("\\^");
+
+            Double degree = degree(Double.parseDouble(degreeArray[0]), Double.parseDouble(degreeArray[1]));
+
+            brackets = brackets.replace(matcherDegree.group(), String.valueOf(degree));
+            break;
+        }
+        for(int i = 0; i < brackets.length(); i++){
+            if(brackets.charAt(i) == '^'){
+                brackets = recurseDegree(brackets);
+            }
+        }
+        return brackets;
+    }
+
+    private static String recurseFirst(String brackets){
+        Pattern patternFirst = Pattern.compile("((\\d+\\.\\d+)|(\\d+))[*/]((\\d+\\.\\d+)|(\\d+))");
+        Matcher matcherFirst = patternFirst.matcher(brackets);
+
+        while (matcherFirst.find()){
+            Double temp;
+            Boolean isMultiply = false;
+
+            Pattern patternMultiply = Pattern.compile("\\*");
+            Matcher matcherMultiply = patternMultiply.matcher(matcherFirst.group());
+
+            while (matcherMultiply.find()) {
+                isMultiply = true;
+            }
+            if (isMultiply) {
+                String[] multiplyArray = matcherFirst.group().split("\\*");
+                temp = multiply(Double.parseDouble(multiplyArray[0]), Double.parseDouble(multiplyArray[1]));
+            } else {
+                String[] divisionArray = matcherFirst.group().split("/");
+                temp = division(Double.parseDouble(divisionArray[0]), Double.parseDouble(divisionArray[1]));
+            }
+            brackets = brackets.replace(matcherFirst.group(), String.valueOf(temp));
+            break;
+        }
+        for(int i = 0; i < brackets.length(); i++){
+            if((brackets.charAt(i) == '*') || (brackets.charAt(i) == '/') ){
+                brackets = recurseFirst(brackets);
+            }
+        }
+
+        return brackets;
+    }
+
+    private static String recurseSecond(String brackets){
+
+        Pattern patternSecond = Pattern.compile("((\\d+\\.\\d+)|(\\d+))[-+]((\\d+\\.\\d+)|(\\d+))");
+        Matcher matcherSecond = patternSecond.matcher(brackets);
+
+        while (matcherSecond.find()){
+            Double temp;
+            Boolean isAdd = false;
+
+            Pattern patternAdd = Pattern.compile("\\+");
+            Matcher matcherAdd = patternAdd.matcher(matcherSecond.group());
+
+            while (matcherAdd.find()) {
+                isAdd = true;
+            }
+            if (isAdd) {
+                String[] addArray = matcherSecond.group().split("\\+");
+                temp = add(Double.parseDouble(addArray[0]), Double.parseDouble(addArray[1]));
+            } else {
+                String[] minusArray = matcherSecond.group().split("-");
+                temp = minus(Double.parseDouble(minusArray[0]), Double.parseDouble(minusArray[1]));
+            }
+            brackets = brackets.replace(matcherSecond.group(), String.valueOf(temp));
+            break;
+        }
+        for(int i = 0; i < brackets.length(); i++){
+            if((brackets.charAt(i) == '+') || (brackets.charAt(i) == '-') ){
+                brackets = recurseSecond(brackets);
+            }
+        }
+        return  brackets;
     }
 }
 
