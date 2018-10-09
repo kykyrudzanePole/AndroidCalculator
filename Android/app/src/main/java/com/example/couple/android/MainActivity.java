@@ -293,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static String recurseDegree(String brackets){
-        Pattern patternDegree = Pattern.compile("((\\d+\\.\\d+)|(\\d+))\\^((\\d+\\.\\d+)|(\\d+))");
+        Pattern patternDegree = Pattern.compile("(((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d)))\\^(((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d+)))");
         Matcher matcherDegree = patternDegree.matcher(brackets);
 
         while(matcherDegree.find()){
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static String recurseFirst(String brackets){
-        Pattern patternFirst = Pattern.compile("((\\d+\\.\\d+)|(\\d+))[*/]((\\d+\\.\\d+)|(\\d+))");
+        Pattern patternFirst = Pattern.compile("(((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d)))[*/](((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d+)))");
         Matcher matcherFirst = patternFirst.matcher(brackets);
 
         while (matcherFirst.find()){
@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String recurseSecond(String brackets){
 
-        Pattern patternSecond = Pattern.compile("((\\d+\\.\\d+)|(\\d+))[-+]((\\d+\\.\\d+)|(\\d+))");
+        Pattern patternSecond = Pattern.compile("(((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d)))[-+](((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d+)))");
         Matcher matcherSecond = patternSecond.matcher(brackets);
 
         while (matcherSecond.find()){
@@ -372,7 +372,13 @@ public class MainActivity extends AppCompatActivity {
         }
         for(int i = 0; i < brackets.length(); i++){
             if((brackets.charAt(i) == '+') || (brackets.charAt(i) == '-') ){
-                brackets = recurseSecond(brackets);
+
+                Pattern patternNegative = Pattern.compile("-((\\d+)|(\\d+\\.\\d))");
+                Matcher matcherNegative = patternNegative.matcher(brackets);
+
+                if(!matcherNegative.find()){
+                    brackets = recurseSecond(brackets);
+                }
             }
         }
         return  brackets;
