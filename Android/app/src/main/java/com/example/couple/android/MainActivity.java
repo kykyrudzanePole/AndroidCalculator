@@ -1,7 +1,6 @@
 package com.example.couple.android;
 
-import android.annotation.SuppressLint;
-import android.os.PatternMatcher;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
