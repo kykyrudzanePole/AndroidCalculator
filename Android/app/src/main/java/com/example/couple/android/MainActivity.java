@@ -221,6 +221,15 @@ public class MainActivity extends AppCompatActivity {
                 }catch (IndexOutOfBoundsException e){ }
             }
         });
+
+        buttonDel.setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+                    public boolean onLongClick(View v){
+                    editText.setText("");
+                return true;
+            }
+        });
+
         buttonFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
