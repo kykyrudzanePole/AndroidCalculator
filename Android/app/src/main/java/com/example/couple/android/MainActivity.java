@@ -1,6 +1,7 @@
 package com.example.couple.android;
 
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         buttonRightBracket.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + ")");
@@ -346,6 +348,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static String recurseSecond(String brackets){
+
+        brackets = brackets.replaceAll("--", "+");
 
         Pattern patternSecond = Pattern.compile("(((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d)))[-+](((-\\d+\\.\\d+)|(-\\d))|((\\d+\\.\\d+)|(\\d+)))");
         Matcher matcherSecond = patternSecond.matcher(brackets);
